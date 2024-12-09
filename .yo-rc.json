@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "devops",
+    "buildTool": "maven",
+    "cacheProvider": "hazelcast",
+    "clientFramework": "angular",
+    "devDatabaseType": "mysql",
+    "devServerPort": 4200,
+    "enableTranslation": true,
+    "entities": ["Employee", "Pointage"],
+    "jhipsterVersion": "8.2.1",
+    "jwtSecretKey": "N2ExMWNkMTBkM2Y1NTQ1MGQ4NGI2ODJhNDlhMWY5OTBkZTg3Yjg5MjVlMjIyYWRkZWUwNDQxYmFkMzdiODZhYzE3MDhmYjg1YjE0YmQyMGZkODNmOGU1ZWY2MGVmZmJlZDZlNTBiNDk1MGU0YmZjYTFmOThjOTc2YzRmZTdlMjU=",
+    "languages": ["en", "fr"],
+    "lastLiquibaseTimestamp": 1733744024000,
+    "nativeLanguage": "en",
+    "packageFolder": "ccos/devops",
+    "packageName": "ccos.devops",
+    "prodDatabaseType": "mysql",
+    "serverPort": "8084"
+  }
+}

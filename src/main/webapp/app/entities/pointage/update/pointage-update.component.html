@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-pointage-heading" data-cy="PointageCreateUpdateHeading" jhiTranslate="devopsApp.pointage.home.createOrEditLabel">
+        Create or edit a Pointage
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="devopsApp.pointage.datuDuJour" for="field_datuDuJour">Datu Du Jour</label>
+          <div class="input-group">
+            <input
+              id="field_datuDuJour"
+              data-cy="datuDuJour"
+              type="text"
+              class="form-control"
+              name="datuDuJour"
+              ngbDatepicker
+              #datuDuJourDp="ngbDatepicker"
+              formControlName="datuDuJour"
+            />
+            <button type="button" class="btn btn-secondary" (click)="datuDuJourDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="devopsApp.pointage.heureArrive" for="field_heureArrive">Heure Arrive</label>
+          <input
+            type="text"
+            class="form-control"
+            name="heureArrive"
+            id="field_heureArrive"
+            data-cy="heureArrive"
+            formControlName="heureArrive"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="devopsApp.pointage.heureDepart" for="field_heureDepart">Heure Depart</label>
+          <input
+            type="text"
+            class="form-control"
+            name="heureDepart"
+            id="field_heureDepart"
+            data-cy="heureDepart"
+            formControlName="heureDepart"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="devopsApp.pointage.employee" for="field_employee">Employee</label>
+          <select
+            class="form-control"
+            id="field_employee"
+            data-cy="employee"
+            name="employee"
+            formControlName="employee"
+            [compareWith]="compareEmployee"
+          >
+            <option [ngValue]="null"></option>
+            @for (employeeOption of employeesSharedCollection; track $index) {
+              <option [ngValue]="employeeOption">{{ employeeOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

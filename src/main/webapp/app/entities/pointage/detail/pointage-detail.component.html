@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (pointage) {
+      <div>
+        <h2 data-cy="pointageDetailsHeading"><span jhiTranslate="devopsApp.pointage.detail.title">Pointage</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ pointage.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.pointage.datuDuJour">Datu Du Jour</span></dt>
+          <dd>
+            <span>{{ pointage.datuDuJour | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.pointage.heureArrive">Heure Arrive</span></dt>
+          <dd>
+            <span>{{ pointage.heureArrive }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.pointage.heureDepart">Heure Depart</span></dt>
+          <dd>
+            <span>{{ pointage.heureDepart }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.pointage.employee">Employee</span></dt>
+          <dd>
+            @if (pointage.employee) {
+              <div>
+                <a [routerLink]="['/employee', pointage.employee.id, 'view']">{{ pointage.employee.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/pointage', pointage.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

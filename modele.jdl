@@ -1,0 +1,57 @@
+application {
+    config {
+        baseName devops
+        packageName ccos.devops
+        applicationType monolith
+        authenticationType jwt
+        prodDatabaseType mysql
+        devDatabaseType mysql
+        clientFramework angular
+        buildTool maven
+        enableTranslation true
+        languages [fr, en]
+        cacheProvider hazelcast
+        serverPort 8084
+    }
+    entities *
+    dto * with mapstruct
+    service * with serviceClass
+    service * with serviceImpl
+    paginate * with pagination
+}
+
+
+entity Employee {
+  matricule String required,
+  prenom String,
+  nom String,
+  email String,
+  dateNaissance LocalDate,
+  lieuNaissance String,
+  sexe Sexe,
+  telephone String
+  status String,
+  fonction String
+  Structure String
+}
+
+
+entity Pointage {
+  datuDuJour LocalDate,
+  heureArrive String,
+  heureDepart String
+}
+
+enum Sexe {
+    Masculin, Feminin
+}
+
+// Relation OneToOne entre Employee et User pour représenter l'association avec les utilisateurs
+relationship OneToOne {
+    Employee{user required} to User with builtInEntity
+}
+
+
+relationship OneToMany {
+	Employee{pointage} to Pointage{employee}
+}

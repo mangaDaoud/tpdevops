@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (employee) {
+      <div>
+        <h2 data-cy="employeeDetailsHeading"><span jhiTranslate="devopsApp.employee.detail.title">Employee</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ employee.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.matricule">Matricule</span></dt>
+          <dd>
+            <span>{{ employee.matricule }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.prenom">Prenom</span></dt>
+          <dd>
+            <span>{{ employee.prenom }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.nom">Nom</span></dt>
+          <dd>
+            <span>{{ employee.nom }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.email">Email</span></dt>
+          <dd>
+            <span>{{ employee.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.dateNaissance">Date Naissance</span></dt>
+          <dd>
+            <span>{{ employee.dateNaissance | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.lieuNaissance">Lieu Naissance</span></dt>
+          <dd>
+            <span>{{ employee.lieuNaissance }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.sexe">Sexe</span></dt>
+          <dd>
+            <span jhiTranslate="{{ 'devopsApp.Sexe.' + employee.sexe }}">{{ employee.sexe }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.telephone">Telephone</span></dt>
+          <dd>
+            <span>{{ employee.telephone }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.status">Status</span></dt>
+          <dd>
+            <span>{{ employee.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.fonction">Fonction</span></dt>
+          <dd>
+            <span>{{ employee.fonction }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.structure">Structure</span></dt>
+          <dd>
+            <span>{{ employee.structure }}</span>
+          </dd>
+          <dt><span jhiTranslate="devopsApp.employee.user">User</span></dt>
+          <dd>
+            <span>{{ employee.user?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/employee', employee.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "devopsApp": {
+    "pointage": {
+      "home": {
+        "title": "Pointages",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Pointage",
+        "createOrEditLabel": "Créer ou éditer un Pointage",
+        "notFound": "Aucun Pointage trouvé"
+      },
+      "created": "Un nouveau Pointage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Pointage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Pointage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Pointage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Pointage"
+      },
+      "id": "ID",
+      "datuDuJour": "Datu Du Jour",
+      "heureArrive": "Heure Arrive",
+      "heureDepart": "Heure Depart",
+      "employee": "Employee"
+    }
+  }
+}
