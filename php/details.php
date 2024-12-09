@@ -1,6 +1,6 @@
 <?php
 $matricule = $_GET['matricule'];
-$apiBaseUrl = "http://localhost:8080/api";
+$apiBaseUrl = "http://localhost:8084/api";
 
 
 $curl = curl_init();
