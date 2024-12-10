@@ -1,9 +1,11 @@
 package ccos.devops.service;
 
+import ccos.devops.domain.Employee;
 import ccos.devops.service.dto.EmployeeDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service Interface for managing {@link ccos.devops.domain.Employee}.
@@ -48,6 +50,8 @@ public interface EmployeeService {
      * @return the entity.
      */
     Optional<EmployeeDTO> findOne(Long id);
+
+    Optional<EmployeeDTO> findOneByMatricule(String matricule);
 
     /**
      * Delete the "id" employee.
