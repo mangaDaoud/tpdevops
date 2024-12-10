@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 script{
-                    sh './mvnw'
+                    sh 'mvn'
                 }
                 
                 echo 'build here'
