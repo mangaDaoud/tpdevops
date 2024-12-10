@@ -1,4 +1,4 @@
-/*pipeline {
+pipeline {
     agent any
 
     tools{
@@ -40,69 +40,4 @@
             }
         }
     }
-}
-*/
-
-
-pipeline {
-    agent any
-
-    tools {
-        // Spécifie que Maven doit être installé pour l'utiliser
-        maven 'Maven'  // Assure-toi que Maven est correctement configuré dans Jenkins
-    }
-
-    environment {
-        DOCKER_IMAGE = 'gestion-pointage:1.0'  // Nom de l'image Docker
-    }
-
-    stages {
-        // Étape de checkout du code
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
-        // Étape de build de l'application
-        stage('Build') {
-            steps {
-                sh './mvnw clean package -DskipTests'  // Construire sans tests (optionnel)
-            }
-        }
-
-        // Étape de test unitaire (si tu souhaites exécuter les tests)
-        /*
-        stage('Test') {
-            steps {
-                sh './mvnw test'  // Exécuter les tests
-            }
-        }
-        */
-
-        // Étape de création de l'image Docker
-        stage('Build Docker Image') {
-            steps {
-                sh 'docker build -t ${DOCKER_IMAGE} .'  // Construire l'image Docker
-            }
-        }
-
-        // Étape de déploiement de l'image Docker
-        stage('Deploy') {
-            steps {
-                // Assure-toi que le port utilisé (8087:8080) est libre
-                sh 'docker run -d -p 8087:8080 --name tpdevops ${DOCKER_IMAGE}'  // Lancer l'image Docker
-            }
-        }
-    }
-
-/*
-    post {
-        // Cleanup: arrêter et supprimer le conteneur Docker après le déploiement (optionnel)
-        always {
-            sh 'docker rm -f tpdevops || true'  // Nettoyer les conteneurs Docker après le déploiement
-    }
-
-    */
-
 }
