@@ -77,6 +77,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public Optional<EmployeeDTO> findOneByMatricule(String matricule) {
+        log.debug("Request to get Employee : {}", matricule);
+        return employeeRepository.findOneByMatricule(matricule).map(employeeMapper::toDto);
+    }
+
+    @Override
     public void delete(Long id) {
         log.debug("Request to delete Employee : {}", id);
         employeeRepository.deleteById(id);
