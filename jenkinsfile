@@ -19,8 +19,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh './mvnw'
-                //sh './mvnw clean install'
+                sh './mvnw clean install'
                 echo 'build here'
             }
         }
