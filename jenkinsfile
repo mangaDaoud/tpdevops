@@ -10,9 +10,16 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') { 
+       stage('Checkout') { 
             steps {
-                checkout scm 
+                checkout scm
+            }
+        }
+
+        stage('Debug') {
+            steps {
+                sh 'pwd'
+                sh 'ls -la'
             }
         }
 
