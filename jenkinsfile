@@ -1,10 +1,10 @@
 pipeline {
     agent any
-
+/*
     tools{
         maven 'Maven'
     }
-
+*/
     environment{
         DOCKER_IMAGE ='gestion-pointage:1.0'
     }
