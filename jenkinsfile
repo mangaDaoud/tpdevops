@@ -1,14 +1,14 @@
 pipeline {
     agent any
-/*
+
     tools{
         maven 'Maven'
     }
-*/
+    /*
     environment{
         DOCKER_IMAGE ='gestion-pointage:1.0'
     }
-
+  */
     stages {
         stage('Checkout') { 
             steps {
@@ -31,14 +31,16 @@ pipeline {
             }
         }
         */
-
+/*
         stage('Build Docker Image') { 
             steps {
                 sh 'docker build -t $DOCKER_IMAGE .'
                 echo 'build image here'
             }
         }
-        
+ */    
+
+ /*   
         stage('Deploy') { 
             steps {
                 sh 'docker run -d -p 8087:8080 --name tpdevops $DOCKER_IMAGE'
@@ -46,4 +48,5 @@ pipeline {
             }
         }
     }
+    */
 }
