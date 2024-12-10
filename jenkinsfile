@@ -10,7 +10,7 @@ pipeline {
     }
   */
     stages {
-        stage('Checkout') { 
+        stage('Checkout') {
             steps {
                 checkout scm 
                 echo 'Checkout here'
@@ -47,6 +47,7 @@ pipeline {
                 echo 'deploy here'
             }
         }
-    }
     */
+    }
+    
 }
