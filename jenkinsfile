@@ -1,9 +1,9 @@
 pipeline {
     agent any
-
+/*
     tools{
         maven 'Maven'
-    }
+    }*/
     /*
     environment{
         DOCKER_IMAGE ='gestion-pointage:1.0'
@@ -19,11 +19,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                script{
-                    sh 'mvn'
-                }
-                
-                echo 'build here'
+                sh './mvn clean install'
             }
         }
 
