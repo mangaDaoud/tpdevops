@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment{
-        DOCKER_IMAGE ='gestion-pointage:latest'
+        DOCKER_IMAGE ='gestion-pointage:1.0'
     }
 
     stages {
@@ -36,7 +36,7 @@ pipeline {
         
         stage('Deploy') { 
             steps {
-                sh 'docker run -d -p 8087:8080 --name tpdevops  $DOCKER_IMAGE'
+                sh 'docker run -d -p 8087:8080 --name tpdevops $DOCKER_IMAGE'
             }
         }
     }
