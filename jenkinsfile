@@ -19,7 +19,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh './mvnw clean install'
+                script{
+                    sh './mvnw clean install'
+                }
+                
                 echo 'build here'
             }
         }
