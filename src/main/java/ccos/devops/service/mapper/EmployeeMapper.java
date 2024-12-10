@@ -18,4 +18,6 @@ public interface EmployeeMapper extends EntityMapper<EmployeeDTO, Employee> {
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
     UserDTO toDtoUserId(User user);
+
+    EmployeeDTO toDto(EmployeeDTO employeeDTO);
 }

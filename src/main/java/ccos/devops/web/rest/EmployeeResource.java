@@ -176,4 +176,11 @@ public class EmployeeResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+
+    @GetMapping("employee/{matricule}")
+    public ResponseEntity<EmployeeDTO> searchEmployee(@PathVariable("matricule") String matricule) {
+        log.debug("REST request to get Employee : {}", matricule);
+        Optional<EmployeeDTO> employeeDTO = employeeService.findOneByMatricule(matricule);
+        return ResponseUtil.wrapOrNotFound(employeeDTO);
+    }
 }
