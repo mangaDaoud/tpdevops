@@ -49,7 +49,8 @@ pipeline {
                     bat '''
                         docker run -d \
                         -p 8084:8084 \
-                         --name tpdevops \
+                        --network host \
+                        --name tpdevops \
                         -e SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/devops \
                         -e SPRING_DATASOURCE_USERNAME=root \
                         -e SPRING_DATASOURCE_PASSWORD= \
