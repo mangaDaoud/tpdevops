@@ -18,8 +18,8 @@ pipeline {
 
         stage('Debug') {
             steps {
-                bat 'pwd'
-                bat 'ls -la'
+                //bat 'pwd'
+                //bat 'ls -la'
             }
         }
 
