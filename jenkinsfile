@@ -37,10 +37,26 @@ pipeline {
         }
 
         
+        // stage('Deploy') { 
+        //     steps {
+        //         bat 'docker run -d -p 8084:8084 --name tpdevops gestion-pointage:1.1'
+        //     }
+        // }
+
         stage('Deploy') { 
             steps {
-                bat 'docker run -d -p 8084:8084 --name tpdevops gestion-pointage:1.1'
+                script {
+                    bat '''
+                        docker run -d \
+                        -p 8084:8084 \
+                        --network host \
+                        -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/devops \
+                        -e SPRING_DATASOURCE_USERNAME=root \
+                        -e SPRING_DATASOURCE_PASSWORD= \
+                        gestion-pointage:1.1
+                    '''
+                }
             }
-        }
     }
-}
+    }
+    }
