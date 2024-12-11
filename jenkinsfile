@@ -48,8 +48,7 @@ pipeline {
                 script {
                     bat '''
                         docker run -d \
-                        -p 8087:8080 \
-                        --network host \
+                        -p 8084:8087 \  
                         -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/devops \
                         -e SPRING_DATASOURCE_USERNAME=root \
                         -e SPRING_DATASOURCE_PASSWORD= \
@@ -57,6 +56,6 @@ pipeline {
                     '''
                 }
             }
-    }
+        }
     }
     }
