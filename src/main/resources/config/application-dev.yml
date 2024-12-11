@@ -7,12 +7,6 @@
 # More information on configuration properties: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# ===================================================================
-# Standard Spring Boot properties.
-# Full reference is available at:
-# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
-# ===================================================================
-
 logging:
   level:
     ROOT: DEBUG
@@ -32,21 +26,25 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/devops
+    url: jdbc:mysql://localhost:3306/devops?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true
     username: root
     password:
-    jpa:
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-    hikari:
-      poolName: Hikari
-      auto-commit: false
-      data-source-properties:
-        cachePrepStmts: true
-        prepStmtCacheSize: 250
-        prepStmtCacheSqlLimit: 2048
-        useServerPrepStmts: true
+    hibernate:
+      ddl-auto: update
+  hikari:
+    poolName: Hikari
+    auto-commit: false
+    data-source-properties:
+      cachePrepStmts: true
+      prepStmtCacheSize: 250
+      prepStmtCacheSqlLimit: 2048
+      useServerPrepStmts: true
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
