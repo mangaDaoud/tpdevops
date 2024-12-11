@@ -50,7 +50,7 @@ pipeline {
                         docker run -d \
                         -p 8084:8084 \
                          --name tpdevops \
-                        -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/devops?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true \
+                        -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/devops \
                         -e SPRING_DATASOURCE_USERNAME=root \
                         -e SPRING_DATASOURCE_PASSWORD= \
                         -e SPRING_JPA_HIBERNATE_DDL_AUTO=update \
