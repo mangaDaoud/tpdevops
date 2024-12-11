@@ -31,7 +31,7 @@ pipeline {
 
         stage('Build Docker Image') { 
             steps {
-                bat 'docker build -t ${DOCKER_IMAGE} .'
+                bat 'docker build -t gestion-pointage:1.1 .'
             }
             
         }
@@ -39,7 +39,7 @@ pipeline {
         
         stage('Deploy') { 
             steps {
-                bat 'docker run -d -p 8087:8080 --name tpdevops ${DOCKER_IMAGE}'
+                bat 'docker run -d -p 8087:8080 --name tpdevops gestion-pointage:1.1'
             }
         }
     }
