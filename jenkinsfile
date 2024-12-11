@@ -16,13 +16,7 @@ pipeline {
             }
         }
 
-        stage('Debug') {
-            steps {
-                bat 'pwd'
-                bat 'ls -la'
-            }
-        }
-
+      
         stage('Build') {
             steps {
                 bat './mvnw clean package'
@@ -40,7 +34,7 @@ pipeline {
                 bat 'docker build -t $DOCKER_IMAGE .'
             }
         }
-        
+
         
         stage('Deploy') { 
             steps {
