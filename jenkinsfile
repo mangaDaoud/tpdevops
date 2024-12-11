@@ -39,7 +39,7 @@ pipeline {
         
         stage('Deploy') { 
             steps {
-                bat 'docker run -d -p 8087:8080 --name tpdevops gestion-pointage:1.1'
+                bat 'docker run -d -p 8084:8084 --name tpdevops gestion-pointage:1.1'
             }
         }
     }
